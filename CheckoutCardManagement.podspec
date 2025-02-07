@@ -13,9 +13,7 @@ Pod::Spec.new do |s|
     s.platform     = :ios, "11.0"
     s.source       = { :git => "https://github.com/checkout/CheckoutCardManagement-iOS.git", :tag => "#{s.version}" }
   
-    s.source_files = "Sources/CheckoutCardManagement/**/*"
-
-    s.vendored_frameworks = "SupportFrameworks/CheckoutCardNetwork.xcframework"
+    s.vendored_frameworks = "CheckoutCardManagement.xcframework", "SupportFrameworks/CheckoutCardNetwork.xcframework", "SupportFrameworks/SecureLogAPI.xcframework"
 
     s.dependency "CheckoutEventLoggerKit"
   end

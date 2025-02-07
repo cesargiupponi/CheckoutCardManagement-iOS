@@ -1,0 +1,122 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
+// swift-module-flags: -target arm64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name CheckoutCardManagement
+import CheckoutCardNetwork
+import CheckoutEventLoggerKit
+import Foundation
+import Swift
+import UIKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+@_hasMissingDesignatedInitializers final public class CheckoutCardManager {
+  public typealias SecureResult = Swift.Result<UIKit.UIView, CheckoutCardManagement.CardManagementError>
+  public typealias SecureResultCompletion = ((CheckoutCardManagement.CheckoutCardManager.SecureResult) -> Swift.Void)
+  public typealias SecurePropertiesResult = Swift.Result<(pan: UIKit.UIView, securityCode: UIKit.UIView), CheckoutCardManagement.CardManagementError>
+  public typealias SecurePropertiesResultCompletion = ((CheckoutCardManagement.CheckoutCardManager.SecurePropertiesResult) -> Swift.Void)
+  public typealias CardListResult = Swift.Result<[CheckoutCardManagement.Card], CheckoutCardManagement.CardManagementError>
+  public typealias CardListResultCompletion = ((CheckoutCardManagement.CheckoutCardManager.CardListResult) -> Swift.Void)
+  public init(designSystem: CheckoutCardManagement.CardManagementDesignSystem, environment: CheckoutCardManagement.CardManagerEnvironment)
+  final public func logInSession(token: Swift.String) -> Swift.Bool
+  final public func logoutSession()
+  final public func getCards(completionHandler: @escaping CheckoutCardManagement.CheckoutCardManager.CardListResultCompletion)
+  @objc deinit
+}
+extension UIKit.UIColor : Swift.Encodable {
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+extension UIKit.UIFont : Swift.Encodable {
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+extension CheckoutCardManagement.Card {
+  final public var possibleStateChanges: [CheckoutCardManagement.CardState] {
+    get
+  }
+  final public func provision(cardholderID: Swift.String, configuration: CheckoutCardManagement.ProvisioningConfiguration, provisioningToken: Swift.String, completionHandler: @escaping ((CheckoutCardManagement.CheckoutCardManager.OperationResult) -> Swift.Void))
+  final public func activate(completionHandler: @escaping ((CheckoutCardManagement.CheckoutCardManager.OperationResult) -> Swift.Void))
+  final public func suspend(reason: CheckoutCardManagement.CardSuspendReason?, completionHandler: @escaping ((CheckoutCardManagement.CheckoutCardManager.OperationResult) -> Swift.Void))
+  final public func revoke(reason: CheckoutCardManagement.CardRevokeReason?, completionHandler: @escaping ((CheckoutCardManagement.CheckoutCardManager.OperationResult) -> Swift.Void))
+}
+extension CheckoutCardManagement.Card {
+  final public func getPan(singleUseToken: Swift.String, completionHandler: @escaping CheckoutCardManagement.CheckoutCardManager.SecureResultCompletion)
+  final public func getPanAndSecurityCode(singleUseToken: Swift.String, completionHandler: @escaping CheckoutCardManagement.CheckoutCardManager.SecurePropertiesResultCompletion)
+}
+extension CheckoutCardManagement.Card {
+  final public func getPin(singleUseToken: Swift.String, completionHandler: @escaping CheckoutCardManagement.CheckoutCardManager.SecureResultCompletion)
+}
+extension CheckoutCardManagement.Card {
+  final public func getSecurityCode(singleUseToken: Swift.String, completionHandler: @escaping CheckoutCardManagement.CheckoutCardManager.SecureResultCompletion)
+}
+@_hasMissingDesignatedInitializers final public class Card {
+  final public var state: CheckoutCardManagement.CardState {
+    get
+  }
+  final public let panLast4Digits: Swift.String
+  final public let expiryDate: CheckoutCardManagement.CardExpiryDate
+  final public let cardholderName: Swift.String
+  final public let id: Swift.String
+  @objc deinit
+}
+public enum CardManagementError : Swift.Error, Swift.Equatable {
+  public enum PushProvisioningFailure : Swift.Error, Swift.Equatable {
+    case cancelled
+    case configurationFailure
+    case operationFailure
+    public func hash(into hasher: inout Swift.Hasher)
+    public static func == (a: CheckoutCardManagement.CardManagementError.PushProvisioningFailure, b: CheckoutCardManagement.CardManagementError.PushProvisioningFailure) -> Swift.Bool
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  case authenticationFailure
+  case configurationIssue(hint: Swift.String)
+  case connectionIssue
+  case deviceNotSupported
+  case insecureDevice
+  case invalidNewCardStateRequested
+  case invalidRequestInput
+  case missingManager
+  case unauthenticated
+  case unableToPerformSecureOperation
+  case invalidStateRequested
+  case pushProvisioningFailure(failure: CheckoutCardManagement.CardManagementError.PushProvisioningFailure)
+  public static func == (a: CheckoutCardManagement.CardManagementError, b: CheckoutCardManagement.CardManagementError) -> Swift.Bool
+}
+public enum CardManagerEnvironment : Swift.String {
+  case sandbox
+  case production
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+extension CheckoutCardManagement.CheckoutCardManager {
+  @frozen public enum OperationResult : Swift.Equatable {
+    case success
+    case failure(CheckoutCardManagement.CardManagementError)
+    public static func == (a: CheckoutCardManagement.CheckoutCardManager.OperationResult, b: CheckoutCardManagement.CheckoutCardManager.OperationResult) -> Swift.Bool
+  }
+}
+public typealias CardExpiryDate = CheckoutCardNetwork.CardExpiryDate
+public typealias CardState = CheckoutCardNetwork.CardState
+public typealias CardSuspendReason = CheckoutCardNetwork.CardSuspendReason
+public typealias CardRevokeReason = CheckoutCardNetwork.CardRevokeReason
+public typealias ProvisioningConfiguration = CheckoutCardNetwork.ProvisioningConfiguration
+public struct CardManagementDesignSystem : Swift.Encodable {
+  public var pinFont: UIKit.UIFont
+  public var pinTextColor: UIKit.UIColor
+  public var panFont: UIKit.UIFont
+  public var panTextColor: UIKit.UIColor
+  public var panTextSeparator: Swift.String
+  public var securityCodeFont: UIKit.UIFont
+  public var securityCodeTextColor: UIKit.UIColor
+  public init(font: UIKit.UIFont, textColor: UIKit.UIColor)
+  public init(pinFont: UIKit.UIFont, pinTextColor: UIKit.UIColor, panFont: UIKit.UIFont, panTextColor: UIKit.UIColor, securityCodeFont: UIKit.UIFont, securityCodeTextColor: UIKit.UIColor)
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+extension CheckoutCardManagement.CardManagementError.PushProvisioningFailure : Swift.Hashable {}
+extension CheckoutCardManagement.CardManagerEnvironment : Swift.Equatable {}
+extension CheckoutCardManagement.CardManagerEnvironment : Swift.Hashable {}
+extension CheckoutCardManagement.CardManagerEnvironment : Swift.RawRepresentable {}
+extension CheckoutCardManagement.CheckoutCardManager.OperationResult : Swift.Sendable {}
