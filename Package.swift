@@ -11,6 +11,7 @@ let package = Package(
     products: [
         .library(
             name: "CheckoutCardManagement",
+            type: .dynamic,
             targets: ["CheckoutCardManagement"]),
         .library(
             name: "CheckoutCardManagementStub",
