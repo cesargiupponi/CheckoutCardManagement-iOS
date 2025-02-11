@@ -2,21 +2,27 @@
 
 ## Table of Contents
 - [Overview](#overview)
-- [Fork Management](#fork-management)
-  - [Initial Fork Setup](#initial-fork-setup)
+- [Repository Setup](#repository-setup)
+  - [Fork Management](#fork-management)
   - [Synchronizing with Upstream](#synchronizing-with-upstream)
+  - [Fetching tags from Upstream](#fetching-tags-from-upstream)
+  - [Using GitHub Interface](#using-github-interface)
   - [Handling Conflicts](#handling-conflicts)
   - [Best Practices for Fork Maintenance](#best-practices-for-fork-maintenance)
 - [Existing SPM Structure](#existing-spm-structure)
   - [Understanding Package.swift](#understanding-packageswift)
   - [Dynamic Library Configuration](#dynamic-library-configuration)
 - [Adding CocoaPods Support](#adding-cocoapods-support)
-  - [Creating the Podspec](#creating-the-podspec)
+  - [Understanding the .podspec File](#understanding-the-podspec-file)
+  - [Framework Bundles Management](#framework-bundles-management)
+    - [Directory Structure](#directory-structure)
+    - [Handling Framework Dependencies](#handling-framework-dependencies)
   - [XCFramework Generation](#xcframework-generation)
   - [Dependencies Management](#dependencies-management)
 - [Testing and Validation](#testing-and-validation)
+- [Maintenance Guide](#maintenance-guide)
+  - [Version Management](#version-management)
 - [Troubleshooting Guide](#troubleshooting-guide)
-- [Maintaining Long-term Compatibility](#maintaining-long-term-compatibility)
 
 ## Overview
 
@@ -88,6 +94,13 @@ git fetch --tags upstream
 ```bash
 git push --tags
 ```
+
+#### Using GitHub Interface
+
+1. Navigate to your fork on GitHub
+2. Click the "Sync fork" dropdown
+3. Review the status of your branch
+4. Click "Update branch" if behind the upstream repository
 
 ### Handling Conflicts
 
@@ -198,7 +211,9 @@ The `.dynamic` type specification in Package.swift that has added is crucial for
 
 ### Understanding the .podspec File
 
-The `.podspec` file is crucial for CocoaPods integration, defining the library's specifications and dependencies. Here's a breakdown of the key components:
+The `.podspec` file is crucial for CocoaPods integration, defining the library's specifications, dependencies, and managing framework bundles. The `vendored_frameworks` directive specifies which framework bundles should be distributed with your pod:
+ 
+ Here's a breakdown of the key components:
 
 ```ruby
 Pod::Spec.new do |s|
@@ -218,9 +233,18 @@ Pod::Spec.new do |s|
     :git => "https://github.com/checkout/CheckoutCardManagement-iOS.git",
     :tag => "#{s.version}"
   }
-  s.vendored_frameworks = "CheckoutCardManagement.xcframework",
-                         "SupportFrameworks/CheckoutCardNetwork.xcframework",
-                         "SupportFrameworks/SecureLogAPI.xcframework"
+  
+  # Framework bundles specification
+  s.vendored_frameworks = [
+    # Main framework
+    "CheckoutCardManagement.xcframework",
+    
+    # Support frameworks in their dedicated folder
+    "SupportFrameworks/CheckoutCardNetwork.xcframework",
+    "SupportFrameworks/SecureLogAPI.xcframework"
+  ]
+  
+  # External dependencies
   s.dependency "CheckoutEventLoggerKit"
 end
 ```
@@ -230,6 +254,41 @@ This podspec is essential because it:
 2. Specifies the same platform requirements as the SPM package
 3. References the XCFramework that will be generated from the SPM library
 4. Maintains consistency with existing dependencies
+
+### Framework Bundles Management
+
+#### Directory Structure
+Your repository should maintain the following structure for framework management:
+
+```
+Repository Root/
+├── CheckoutCardManagement.xcframework/    # Main framework
+│   ├── ios-arm64/
+│   │   └── CheckoutCardManagement.framework/
+│   └── ios-x86_64-simulator/
+│       └── CheckoutCardManagement.framework/
+├── SupportFrameworks/                     # Support frameworks folder
+│   ├── CheckoutCardNetwork.xcframework/
+│   │   ├── ios-arm64/
+│   │   └── ios-x86_64-simulator/
+│   └── SecureLogAPI.xcframework/
+│       ├── ios-arm64/
+│       └── ios-x86_64-simulator/
+├── Package.swift
+├── CheckoutCardManagement.podspec
+└── README.md
+```
+
+#### Handling Framework Dependencies
+
+When your vendored frameworks have their own dependencies:
+
+1. External dependencies should be declared:
+```ruby
+s.dependency "CheckoutEventLoggerKit"
+```
+
+2. Internal dependencies between vendored frameworks are handled automatically if they're in the correct paths
 
 ### XCFramework Generation
 
@@ -301,6 +360,29 @@ Executing the script:
 sh generate-xcframework.sh
 ```
 
+### Dependencies Management
+
+Managing dependencies:
+
+1. Directory Structure:
+```
+Repository Root/
+├── Package.swift
+├── Sources/
+├── Tests/
+├── CheckoutCardManagement.podspec
+├── CheckoutCardManagement.xcframework/
+└── SupportFrameworks/
+    └── SecureLogAPI.xcframework/
+    └── CheckoutOOBSDK.xcframework/
+    └── CheckoutCardNetworkStub.xcframework/
+    └── CheckoutCardNetwork.xcframework/
+```
+
+2. Dependency Specifications:
+   - In Package.swift: Referenced as a binary target
+   - In podspec: Listed under vendored_frameworks
+
 ## Testing and Validation
 
 1. CocoaPods Integration Test:
@@ -323,6 +405,17 @@ end
 ```bash
 pod spec lint CheckoutCardManagement.podspec
 ```
+
+## Maintenance Guide
+
+### Version Management
+
+1. Update both specifications when releasing:
+   - Package.swift version
+   - Podspec version
+   - Git tag
+
+2. Maintain changelog entries
 
 ## Troubleshooting Guide
 
