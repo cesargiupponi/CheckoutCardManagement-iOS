@@ -52,6 +52,8 @@ for PLATFORM in "iOS" "iOS Simulator"; do
 
 done
 
+rm -rf CheckoutCardManagement.xcframework
+
 xcodebuild -create-xcframework \
 -framework Release-iphoneos.xcarchive/Products/usr/local/lib/$NAME.framework \
 -framework Release-iphonesimulator.xcarchive/Products/usr/local/lib/$NAME.framework \
