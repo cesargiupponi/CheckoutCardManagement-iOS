@@ -357,7 +357,7 @@ xcodebuild -create-xcframework \
 
 Executing the script:
 ```bash
-sh generate-xcframework.sh
+sh Scripts/create-xc-from-spm.sh CheckoutCardManagement
 ```
 
 ### Dependencies Management
