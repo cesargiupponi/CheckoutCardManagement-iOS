@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name         = "CheckoutCardManagement"
-    s.version      = "1.1.4"
+    s.version      = "2.1.0"
     s.summary      = "Checkout Card Management"
     s.description  = <<-DESC
     Checkout Card Management
