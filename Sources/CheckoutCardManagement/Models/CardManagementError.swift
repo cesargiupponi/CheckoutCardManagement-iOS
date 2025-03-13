@@ -31,6 +31,37 @@ public enum CardManagementError: Error, Equatable {
         }
     }
     
+    public enum ProvisioningExtensionFailure: Error, Equatable {
+        /// User has cancelled the operation at some point during the flow
+        case walletExtensionAppGroupIDNotFound
+        case notLoggedIn
+        case cardNotFound
+        case deviceEnvironmentUnsafe
+        case operationFailure
+        
+        static func from (_ networkError: CardNetworkError.ProvisioningExtensionFailure) -> Self {
+            switch networkError {
+            case .walletExtensionAppGroupIDNotFound: return .walletExtensionAppGroupIDNotFound
+            case .notLoggedIn: return .notLoggedIn
+            case .cardNotFound: return .cardNotFound
+            case .deviceEnvironmentUnsafe: return .deviceEnvironmentUnsafe
+            case .operationFailure: return .operationFailure
+            }
+        }
+    }
+
+    public enum DigitizationStateFailure: Error, Equatable {
+        case configurationFailure
+        case operationFailure
+        
+        static func from (_ networkError: CardNetworkError.DigitizationStateFailure) -> Self {
+            switch networkError {
+            case .configurationFailure: return .configurationFailure
+            case .operationFailure: return .operationFailure
+            }
+        }
+    }
+    
     /// The authentication of the session has failed. Functionality will not be available until a successful authentication takes place
     case authenticationFailure
     
@@ -73,6 +104,9 @@ public enum CardManagementError: Error, Equatable {
     
     /// Failed to complete Push Provisioning request
     case pushProvisioningFailure(failure: PushProvisioningFailure)
+    
+    /// Failed to complete Push Provisioning request
+    case fetchDigitizationStateFailure(failure: DigitizationStateFailure)
 }
 
 extension CardManagementError {
@@ -101,6 +135,8 @@ extension CardManagementError {
             return .connectionIssue
         case .pushProvisioningFailure(let failure):
             return .pushProvisioningFailure(failure: .from(failure))
+        case .fetchDigitizationStateFailure(failure: let failure):
+            return .fetchDigitizationStateFailure(failure: .from(failure))
         }
     }
     
