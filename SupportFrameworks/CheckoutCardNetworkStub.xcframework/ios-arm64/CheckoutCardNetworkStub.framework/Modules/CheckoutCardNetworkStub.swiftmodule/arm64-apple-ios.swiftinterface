@@ -3,6 +3,7 @@
 // swift-module-flags: -target arm64-apple-ios13.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name CheckoutCardNetworkStub
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import Foundation
+import PassKit
 import Swift
 import UIKit
 import _Concurrency
@@ -14,10 +15,14 @@ public struct WalletCardDetails {
   public let cardArt: UIKit.UIImage
   public init(cardId: Swift.String, cardTitle: Swift.String, cardArt: UIKit.UIImage)
 }
-public enum CardDigitizationResult : Swift.Equatable {
-  case success(CheckoutCardNetworkStub.CardDigitizationState)
+public enum CardDigitizationResult {
+  case success(CheckoutCardNetworkStub.CardDigitizationData)
   case failure(CheckoutCardNetworkStub.CardNetworkError)
-  public static func == (a: CheckoutCardNetworkStub.CardDigitizationResult, b: CheckoutCardNetworkStub.CardDigitizationResult) -> Swift.Bool
+}
+public struct CardDigitizationData {
+  public let state: CheckoutCardNetworkStub.CardDigitizationState
+  public let localPKPass: PassKit.PKPass?
+  public let remotePKPass: PassKit.PKPass?
 }
 public enum CardDigitizationState : Swift.String, Swift.Decodable {
   case digitized
@@ -197,12 +202,20 @@ public enum CardNetworkError : Swift.Error, Swift.Equatable {
   }
   public enum ProvisioningExtensionFailure : Swift.Error, Swift.Equatable {
     case walletExtensionAppGroupIDNotFound
-    case notLoggedIn
     case cardNotFound
     case deviceEnvironmentUnsafe
     case operationFailure
     public func hash(into hasher: inout Swift.Hasher)
     public static func == (a: CheckoutCardNetworkStub.CardNetworkError.ProvisioningExtensionFailure, b: CheckoutCardNetworkStub.CardNetworkError.ProvisioningExtensionFailure) -> Swift.Bool
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public enum DigitizationStateFailure : Swift.Error, Swift.Equatable {
+    case configurationFailure
+    case operationFailure
+    public func hash(into hasher: inout Swift.Hasher)
+    public static func == (a: CheckoutCardNetworkStub.CardNetworkError.DigitizationStateFailure, b: CheckoutCardNetworkStub.CardNetworkError.DigitizationStateFailure) -> Swift.Bool
     public var hashValue: Swift.Int {
       get
     }
@@ -218,6 +231,7 @@ public enum CardNetworkError : Swift.Error, Swift.Equatable {
   case secureOperationsFailure
   case parsingFailure
   case pushProvisioningFailure(failure: CheckoutCardNetworkStub.CardNetworkError.PushProvisioningFailure)
+  case fetchDigitizationStateFailure(failure: CheckoutCardNetworkStub.CardNetworkError.DigitizationStateFailure)
   public static func == (a: CheckoutCardNetworkStub.CardNetworkError, b: CheckoutCardNetworkStub.CardNetworkError) -> Swift.Bool
 }
 public enum OperationResult : Swift.Equatable {
@@ -257,3 +271,4 @@ extension CheckoutCardNetworkStub.CardRevokeReason : Swift.Hashable {}
 extension CheckoutCardNetworkStub.CardRevokeReason : Swift.RawRepresentable {}
 extension CheckoutCardNetworkStub.CardNetworkError.PushProvisioningFailure : Swift.Hashable {}
 extension CheckoutCardNetworkStub.CardNetworkError.ProvisioningExtensionFailure : Swift.Hashable {}
+extension CheckoutCardNetworkStub.CardNetworkError.DigitizationStateFailure : Swift.Hashable {}
