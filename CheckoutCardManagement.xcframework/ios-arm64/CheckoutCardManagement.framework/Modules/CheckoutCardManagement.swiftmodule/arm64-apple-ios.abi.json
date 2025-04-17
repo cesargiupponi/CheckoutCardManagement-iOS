@@ -1,8 +1,8 @@
 {
   "ABIRoot": {
     "kind": "Root",
-    "name": "CheckoutCardManagement",
-    "printedName": "CheckoutCardManagement",
+    "name": "TopLevel",
+    "printedName": "TopLevel",
     "children": [
       {
         "kind": "Import",
@@ -278,12 +278,12 @@
                   {
                     "kind": "TypeFunc",
                     "name": "Function",
-                    "printedName": "(CheckoutCardManagement.CheckoutCardManager.CardDigitizationResult.Type) -> (CheckoutCardManagement.DigitizationState) -> CheckoutCardManagement.CheckoutCardManager.CardDigitizationResult",
+                    "printedName": "(CheckoutCardManagement.CheckoutCardManager.CardDigitizationResult.Type) -> (CheckoutCardManagement.DigitizationData) -> CheckoutCardManagement.CheckoutCardManager.CardDigitizationResult",
                     "children": [
                       {
                         "kind": "TypeFunc",
                         "name": "Function",
-                        "printedName": "(CheckoutCardManagement.DigitizationState) -> CheckoutCardManagement.CheckoutCardManager.CardDigitizationResult",
+                        "printedName": "(CheckoutCardManagement.DigitizationData) -> CheckoutCardManagement.CheckoutCardManager.CardDigitizationResult",
                         "children": [
                           {
                             "kind": "TypeNominal",
@@ -293,9 +293,9 @@
                           },
                           {
                             "kind": "TypeNominal",
-                            "name": "DigitizationState",
-                            "printedName": "CheckoutCardManagement.DigitizationState",
-                            "usr": "s:22CheckoutCardManagement17DigitizationStateO"
+                            "name": "DigitizationData",
+                            "printedName": "CheckoutCardManagement.DigitizationData",
+                            "usr": "s:22CheckoutCardManagement16DigitizationDataV"
                           }
                         ]
                       },
@@ -316,8 +316,8 @@
                   }
                 ],
                 "declKind": "EnumElement",
-                "usr": "s:22CheckoutCardManagement0aB7ManagerC0B18DigitizationResultO7successyAeA0E5StateOcAEmF",
-                "mangledName": "$s22CheckoutCardManagement0aB7ManagerC0B18DigitizationResultO7successyAeA0E5StateOcAEmF",
+                "usr": "s:22CheckoutCardManagement0aB7ManagerC0B18DigitizationResultO7successyAeA0E4DataVcAEmF",
+                "mangledName": "$s22CheckoutCardManagement0aB7ManagerC0B18DigitizationResultO7successyAeA0E4DataVcAEmF",
                 "moduleName": "CheckoutCardManagement",
                 "declAttributes": [
                   "RawDocComment"
@@ -377,38 +377,6 @@
                   "RawDocComment"
                 ],
                 "fixedbinaryorder": 1
-              },
-              {
-                "kind": "Function",
-                "name": "==",
-                "printedName": "==(_:_:)",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Bool",
-                    "printedName": "Swift.Bool",
-                    "usr": "s:Sb"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "CardDigitizationResult",
-                    "printedName": "CheckoutCardManagement.CheckoutCardManager.CardDigitizationResult",
-                    "usr": "s:22CheckoutCardManagement0aB7ManagerC0B18DigitizationResultO"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "CardDigitizationResult",
-                    "printedName": "CheckoutCardManagement.CheckoutCardManager.CardDigitizationResult",
-                    "usr": "s:22CheckoutCardManagement0aB7ManagerC0B18DigitizationResultO"
-                  }
-                ],
-                "declKind": "Func",
-                "usr": "s:22CheckoutCardManagement0aB7ManagerC0B18DigitizationResultO2eeoiySbAE_AEtFZ",
-                "mangledName": "$s22CheckoutCardManagement0aB7ManagerC0B18DigitizationResultO2eeoiySbAE_AEtFZ",
-                "moduleName": "CheckoutCardManagement",
-                "static": true,
-                "implicit": true,
-                "funcSelfKind": "NonMutating"
               }
             ],
             "declKind": "Enum",
@@ -421,30 +389,7 @@
               "RawDocComment"
             ],
             "isFromExtension": true,
-            "isEnumExhaustive": true,
-            "conformances": [
-              {
-                "kind": "Conformance",
-                "name": "Copyable",
-                "printedName": "Copyable",
-                "usr": "s:s8CopyableP",
-                "mangledName": "$ss8CopyableP"
-              },
-              {
-                "kind": "Conformance",
-                "name": "Escapable",
-                "printedName": "Escapable",
-                "usr": "s:s9EscapableP",
-                "mangledName": "$ss9EscapableP"
-              },
-              {
-                "kind": "Conformance",
-                "name": "Equatable",
-                "printedName": "Equatable",
-                "usr": "s:SQ",
-                "mangledName": "$sSQ"
-              }
-            ]
+            "isEnumExhaustive": true
           },
           {
             "kind": "TypeDecl",
@@ -593,20 +538,6 @@
             "conformances": [
               {
                 "kind": "Conformance",
-                "name": "Copyable",
-                "printedName": "Copyable",
-                "usr": "s:s8CopyableP",
-                "mangledName": "$ss8CopyableP"
-              },
-              {
-                "kind": "Conformance",
-                "name": "Escapable",
-                "printedName": "Escapable",
-                "usr": "s:s9EscapableP",
-                "mangledName": "$ss9EscapableP"
-              },
-              {
-                "kind": "Conformance",
                 "name": "Equatable",
                 "printedName": "Equatable",
                 "usr": "s:SQ",
@@ -631,23 +562,7 @@
           "AccessControl",
           "RawDocComment"
         ],
-        "hasMissingDesignatedInitializers": true,
-        "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          }
-        ]
+        "hasMissingDesignatedInitializers": true
       },
       {
         "kind": "Import",
@@ -1650,23 +1565,7 @@
           "AccessControl",
           "RawDocComment"
         ],
-        "hasMissingDesignatedInitializers": true,
-        "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          }
-        ]
+        "hasMissingDesignatedInitializers": true
       },
       {
         "kind": "Import",
@@ -1676,323 +1575,6 @@
         "moduleName": "CheckoutCardManagement",
         "declAttributes": [
           "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "CheckoutCardManagement",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "TypeDecl",
-        "name": "DigitizationState",
-        "printedName": "DigitizationState",
-        "children": [
-          {
-            "kind": "Var",
-            "name": "digitized",
-            "printedName": "digitized",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(CheckoutCardManagement.DigitizationState.Type) -> CheckoutCardManagement.DigitizationState",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "DigitizationState",
-                    "printedName": "CheckoutCardManagement.DigitizationState",
-                    "usr": "s:22CheckoutCardManagement17DigitizationStateO"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "CheckoutCardManagement.DigitizationState.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "DigitizationState",
-                        "printedName": "CheckoutCardManagement.DigitizationState",
-                        "usr": "s:22CheckoutCardManagement17DigitizationStateO"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "s:22CheckoutCardManagement17DigitizationStateO9digitizedyA2CmF",
-            "mangledName": "$s22CheckoutCardManagement17DigitizationStateO9digitizedyA2CmF",
-            "moduleName": "CheckoutCardManagement",
-            "declAttributes": [
-              "RawDocComment"
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "notDigitized",
-            "printedName": "notDigitized",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(CheckoutCardManagement.DigitizationState.Type) -> CheckoutCardManagement.DigitizationState",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "DigitizationState",
-                    "printedName": "CheckoutCardManagement.DigitizationState",
-                    "usr": "s:22CheckoutCardManagement17DigitizationStateO"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "CheckoutCardManagement.DigitizationState.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "DigitizationState",
-                        "printedName": "CheckoutCardManagement.DigitizationState",
-                        "usr": "s:22CheckoutCardManagement17DigitizationStateO"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "s:22CheckoutCardManagement17DigitizationStateO12notDigitizedyA2CmF",
-            "mangledName": "$s22CheckoutCardManagement17DigitizationStateO12notDigitizedyA2CmF",
-            "moduleName": "CheckoutCardManagement",
-            "declAttributes": [
-              "RawDocComment"
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "pendingIDVLocal",
-            "printedName": "pendingIDVLocal",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(CheckoutCardManagement.DigitizationState.Type) -> CheckoutCardManagement.DigitizationState",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "DigitizationState",
-                    "printedName": "CheckoutCardManagement.DigitizationState",
-                    "usr": "s:22CheckoutCardManagement17DigitizationStateO"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "CheckoutCardManagement.DigitizationState.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "DigitizationState",
-                        "printedName": "CheckoutCardManagement.DigitizationState",
-                        "usr": "s:22CheckoutCardManagement17DigitizationStateO"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "s:22CheckoutCardManagement17DigitizationStateO15pendingIDVLocalyA2CmF",
-            "mangledName": "$s22CheckoutCardManagement17DigitizationStateO15pendingIDVLocalyA2CmF",
-            "moduleName": "CheckoutCardManagement",
-            "declAttributes": [
-              "RawDocComment"
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "pendingIDVRemote",
-            "printedName": "pendingIDVRemote",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(CheckoutCardManagement.DigitizationState.Type) -> CheckoutCardManagement.DigitizationState",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "DigitizationState",
-                    "printedName": "CheckoutCardManagement.DigitizationState",
-                    "usr": "s:22CheckoutCardManagement17DigitizationStateO"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "CheckoutCardManagement.DigitizationState.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "DigitizationState",
-                        "printedName": "CheckoutCardManagement.DigitizationState",
-                        "usr": "s:22CheckoutCardManagement17DigitizationStateO"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "s:22CheckoutCardManagement17DigitizationStateO16pendingIDVRemoteyA2CmF",
-            "mangledName": "$s22CheckoutCardManagement17DigitizationStateO16pendingIDVRemoteyA2CmF",
-            "moduleName": "CheckoutCardManagement",
-            "declAttributes": [
-              "RawDocComment"
-            ]
-          },
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init(rawValue:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "CheckoutCardManagement.DigitizationState?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "DigitizationState",
-                    "printedName": "CheckoutCardManagement.DigitizationState",
-                    "usr": "s:22CheckoutCardManagement17DigitizationStateO"
-                  }
-                ],
-                "usr": "s:Sq"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "s:22CheckoutCardManagement17DigitizationStateO8rawValueACSgSS_tcfc",
-            "mangledName": "$s22CheckoutCardManagement17DigitizationStateO8rawValueACSgSS_tcfc",
-            "moduleName": "CheckoutCardManagement",
-            "implicit": true,
-            "init_kind": "Designated"
-          },
-          {
-            "kind": "Var",
-            "name": "rawValue",
-            "printedName": "rawValue",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:22CheckoutCardManagement17DigitizationStateO8rawValueSSvp",
-            "mangledName": "$s22CheckoutCardManagement17DigitizationStateO8rawValueSSvp",
-            "moduleName": "CheckoutCardManagement",
-            "implicit": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:22CheckoutCardManagement17DigitizationStateO8rawValueSSvg",
-                "mangledName": "$s22CheckoutCardManagement17DigitizationStateO8rawValueSSvg",
-                "moduleName": "CheckoutCardManagement",
-                "implicit": true,
-                "accessorKind": "get"
-              }
-            ]
-          }
-        ],
-        "declKind": "Enum",
-        "usr": "s:22CheckoutCardManagement17DigitizationStateO",
-        "mangledName": "$s22CheckoutCardManagement17DigitizationStateO",
-        "moduleName": "CheckoutCardManagement",
-        "declAttributes": [
-          "AccessControl",
-          "RawDocComment"
-        ],
-        "enumRawTypeName": "String",
-        "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Equatable",
-            "printedName": "Equatable",
-            "usr": "s:SQ",
-            "mangledName": "$sSQ"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Hashable",
-            "printedName": "Hashable",
-            "usr": "s:SH",
-            "mangledName": "$sSH"
-          },
-          {
-            "kind": "Conformance",
-            "name": "RawRepresentable",
-            "printedName": "RawRepresentable",
-            "children": [
-              {
-                "kind": "TypeWitness",
-                "name": "RawValue",
-                "printedName": "RawValue",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ]
-              }
-            ],
-            "usr": "s:SY",
-            "mangledName": "$sSY"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Decodable",
-            "printedName": "Decodable",
-            "usr": "s:Se",
-            "mangledName": "$sSe"
-          }
         ]
       },
       {
@@ -2250,20 +1832,6 @@
             "conformances": [
               {
                 "kind": "Conformance",
-                "name": "Copyable",
-                "printedName": "Copyable",
-                "usr": "s:s8CopyableP",
-                "mangledName": "$ss8CopyableP"
-              },
-              {
-                "kind": "Conformance",
-                "name": "Escapable",
-                "printedName": "Escapable",
-                "usr": "s:s9EscapableP",
-                "mangledName": "$ss9EscapableP"
-              },
-              {
-                "kind": "Conformance",
                 "name": "Hashable",
                 "printedName": "Hashable",
                 "usr": "s:SH",
@@ -2339,43 +1907,6 @@
               },
               {
                 "kind": "Var",
-                "name": "notLoggedIn",
-                "printedName": "notLoggedIn",
-                "children": [
-                  {
-                    "kind": "TypeFunc",
-                    "name": "Function",
-                    "printedName": "(CheckoutCardManagement.CardManagementError.ProvisioningExtensionFailure.Type) -> CheckoutCardManagement.CardManagementError.ProvisioningExtensionFailure",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "ProvisioningExtensionFailure",
-                        "printedName": "CheckoutCardManagement.CardManagementError.ProvisioningExtensionFailure",
-                        "usr": "s:22CheckoutCardManagement0bC5ErrorO28ProvisioningExtensionFailureO"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Metatype",
-                        "printedName": "CheckoutCardManagement.CardManagementError.ProvisioningExtensionFailure.Type",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "ProvisioningExtensionFailure",
-                            "printedName": "CheckoutCardManagement.CardManagementError.ProvisioningExtensionFailure",
-                            "usr": "s:22CheckoutCardManagement0bC5ErrorO28ProvisioningExtensionFailureO"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                ],
-                "declKind": "EnumElement",
-                "usr": "s:22CheckoutCardManagement0bC5ErrorO28ProvisioningExtensionFailureO11notLoggedInyA2EmF",
-                "mangledName": "$s22CheckoutCardManagement0bC5ErrorO28ProvisioningExtensionFailureO11notLoggedInyA2EmF",
-                "moduleName": "CheckoutCardManagement"
-              },
-              {
-                "kind": "Var",
                 "name": "cardNotFound",
                 "printedName": "cardNotFound",
                 "children": [
@@ -2409,7 +1940,10 @@
                 "declKind": "EnumElement",
                 "usr": "s:22CheckoutCardManagement0bC5ErrorO28ProvisioningExtensionFailureO12cardNotFoundyA2EmF",
                 "mangledName": "$s22CheckoutCardManagement0bC5ErrorO28ProvisioningExtensionFailureO12cardNotFoundyA2EmF",
-                "moduleName": "CheckoutCardManagement"
+                "moduleName": "CheckoutCardManagement",
+                "declAttributes": [
+                  "RawDocComment"
+                ]
               },
               {
                 "kind": "Var",
@@ -2446,7 +1980,10 @@
                 "declKind": "EnumElement",
                 "usr": "s:22CheckoutCardManagement0bC5ErrorO28ProvisioningExtensionFailureO23deviceEnvironmentUnsafeyA2EmF",
                 "mangledName": "$s22CheckoutCardManagement0bC5ErrorO28ProvisioningExtensionFailureO23deviceEnvironmentUnsafeyA2EmF",
-                "moduleName": "CheckoutCardManagement"
+                "moduleName": "CheckoutCardManagement",
+                "declAttributes": [
+                  "RawDocComment"
+                ]
               },
               {
                 "kind": "Var",
@@ -2483,7 +2020,10 @@
                 "declKind": "EnumElement",
                 "usr": "s:22CheckoutCardManagement0bC5ErrorO28ProvisioningExtensionFailureO09operationG0yA2EmF",
                 "mangledName": "$s22CheckoutCardManagement0bC5ErrorO28ProvisioningExtensionFailureO09operationG0yA2EmF",
-                "moduleName": "CheckoutCardManagement"
+                "moduleName": "CheckoutCardManagement",
+                "declAttributes": [
+                  "RawDocComment"
+                ]
               },
               {
                 "kind": "Var",
@@ -2587,23 +2127,10 @@
             "mangledName": "$s22CheckoutCardManagement0bC5ErrorO28ProvisioningExtensionFailureO",
             "moduleName": "CheckoutCardManagement",
             "declAttributes": [
-              "AccessControl"
+              "AccessControl",
+              "RawDocComment"
             ],
             "conformances": [
-              {
-                "kind": "Conformance",
-                "name": "Copyable",
-                "printedName": "Copyable",
-                "usr": "s:s8CopyableP",
-                "mangledName": "$ss8CopyableP"
-              },
-              {
-                "kind": "Conformance",
-                "name": "Escapable",
-                "printedName": "Escapable",
-                "usr": "s:s9EscapableP",
-                "mangledName": "$ss9EscapableP"
-              },
               {
                 "kind": "Conformance",
                 "name": "Hashable",
@@ -2818,20 +2345,6 @@
               "AccessControl"
             ],
             "conformances": [
-              {
-                "kind": "Conformance",
-                "name": "Copyable",
-                "printedName": "Copyable",
-                "usr": "s:s8CopyableP",
-                "mangledName": "$ss8CopyableP"
-              },
-              {
-                "kind": "Conformance",
-                "name": "Escapable",
-                "printedName": "Escapable",
-                "usr": "s:s9EscapableP",
-                "mangledName": "$ss9EscapableP"
-              },
               {
                 "kind": "Conformance",
                 "name": "Hashable",
@@ -3486,20 +2999,6 @@
         "conformances": [
           {
             "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
             "name": "Error",
             "printedName": "Error",
             "usr": "s:s5ErrorP",
@@ -3715,18 +3214,495 @@
         "conformances": [
           {
             "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
           },
           {
             "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
           },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "CheckoutCardNetwork",
+        "printedName": "CheckoutCardNetwork",
+        "declKind": "Import",
+        "moduleName": "CheckoutCardManagement",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "CheckoutCardManagement"
+      },
+      {
+        "kind": "Import",
+        "name": "PassKit",
+        "printedName": "PassKit",
+        "declKind": "Import",
+        "moduleName": "CheckoutCardManagement"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "DigitizationData",
+        "printedName": "DigitizationData",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "state",
+            "printedName": "state",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "DigitizationState",
+                "printedName": "CheckoutCardManagement.DigitizationState",
+                "usr": "s:22CheckoutCardManagement17DigitizationStateO"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:22CheckoutCardManagement16DigitizationDataV5stateAA0D5StateOvp",
+            "mangledName": "$s22CheckoutCardManagement16DigitizationDataV5stateAA0D5StateOvp",
+            "moduleName": "CheckoutCardManagement",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DigitizationState",
+                    "printedName": "CheckoutCardManagement.DigitizationState",
+                    "usr": "s:22CheckoutCardManagement17DigitizationStateO"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:22CheckoutCardManagement16DigitizationDataV5stateAA0D5StateOvg",
+                "mangledName": "$s22CheckoutCardManagement16DigitizationDataV5stateAA0D5StateOvg",
+                "moduleName": "CheckoutCardManagement",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "localPKPass",
+            "printedName": "localPKPass",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "PassKit.PKPass?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PKPass",
+                    "printedName": "PassKit.PKPass",
+                    "usr": "c:objc(cs)PKPass"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:22CheckoutCardManagement16DigitizationDataV11localPKPassSo0G0CSgvp",
+            "mangledName": "$s22CheckoutCardManagement16DigitizationDataV11localPKPassSo0G0CSgvp",
+            "moduleName": "CheckoutCardManagement",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "PassKit.PKPass?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PKPass",
+                        "printedName": "PassKit.PKPass",
+                        "usr": "c:objc(cs)PKPass"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:22CheckoutCardManagement16DigitizationDataV11localPKPassSo0G0CSgvg",
+                "mangledName": "$s22CheckoutCardManagement16DigitizationDataV11localPKPassSo0G0CSgvg",
+                "moduleName": "CheckoutCardManagement",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "remotePKPass",
+            "printedName": "remotePKPass",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "PassKit.PKPass?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PKPass",
+                    "printedName": "PassKit.PKPass",
+                    "usr": "c:objc(cs)PKPass"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:22CheckoutCardManagement16DigitizationDataV12remotePKPassSo0G0CSgvp",
+            "mangledName": "$s22CheckoutCardManagement16DigitizationDataV12remotePKPassSo0G0CSgvp",
+            "moduleName": "CheckoutCardManagement",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "PassKit.PKPass?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PKPass",
+                        "printedName": "PassKit.PKPass",
+                        "usr": "c:objc(cs)PKPass"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:22CheckoutCardManagement16DigitizationDataV12remotePKPassSo0G0CSgvg",
+                "mangledName": "$s22CheckoutCardManagement16DigitizationDataV12remotePKPassSo0G0CSgvg",
+                "moduleName": "CheckoutCardManagement",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:22CheckoutCardManagement16DigitizationDataV",
+        "mangledName": "$s22CheckoutCardManagement16DigitizationDataV",
+        "moduleName": "CheckoutCardManagement",
+        "declAttributes": [
+          "AccessControl"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "DigitizationState",
+        "printedName": "DigitizationState",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "digitized",
+            "printedName": "digitized",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(CheckoutCardManagement.DigitizationState.Type) -> CheckoutCardManagement.DigitizationState",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DigitizationState",
+                    "printedName": "CheckoutCardManagement.DigitizationState",
+                    "usr": "s:22CheckoutCardManagement17DigitizationStateO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "CheckoutCardManagement.DigitizationState.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "DigitizationState",
+                        "printedName": "CheckoutCardManagement.DigitizationState",
+                        "usr": "s:22CheckoutCardManagement17DigitizationStateO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:22CheckoutCardManagement17DigitizationStateO9digitizedyA2CmF",
+            "mangledName": "$s22CheckoutCardManagement17DigitizationStateO9digitizedyA2CmF",
+            "moduleName": "CheckoutCardManagement",
+            "declAttributes": [
+              "RawDocComment"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "notDigitized",
+            "printedName": "notDigitized",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(CheckoutCardManagement.DigitizationState.Type) -> CheckoutCardManagement.DigitizationState",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DigitizationState",
+                    "printedName": "CheckoutCardManagement.DigitizationState",
+                    "usr": "s:22CheckoutCardManagement17DigitizationStateO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "CheckoutCardManagement.DigitizationState.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "DigitizationState",
+                        "printedName": "CheckoutCardManagement.DigitizationState",
+                        "usr": "s:22CheckoutCardManagement17DigitizationStateO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:22CheckoutCardManagement17DigitizationStateO12notDigitizedyA2CmF",
+            "mangledName": "$s22CheckoutCardManagement17DigitizationStateO12notDigitizedyA2CmF",
+            "moduleName": "CheckoutCardManagement",
+            "declAttributes": [
+              "RawDocComment"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "pendingIDVLocal",
+            "printedName": "pendingIDVLocal",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(CheckoutCardManagement.DigitizationState.Type) -> CheckoutCardManagement.DigitizationState",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DigitizationState",
+                    "printedName": "CheckoutCardManagement.DigitizationState",
+                    "usr": "s:22CheckoutCardManagement17DigitizationStateO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "CheckoutCardManagement.DigitizationState.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "DigitizationState",
+                        "printedName": "CheckoutCardManagement.DigitizationState",
+                        "usr": "s:22CheckoutCardManagement17DigitizationStateO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:22CheckoutCardManagement17DigitizationStateO15pendingIDVLocalyA2CmF",
+            "mangledName": "$s22CheckoutCardManagement17DigitizationStateO15pendingIDVLocalyA2CmF",
+            "moduleName": "CheckoutCardManagement",
+            "declAttributes": [
+              "RawDocComment"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "pendingIDVRemote",
+            "printedName": "pendingIDVRemote",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(CheckoutCardManagement.DigitizationState.Type) -> CheckoutCardManagement.DigitizationState",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DigitizationState",
+                    "printedName": "CheckoutCardManagement.DigitizationState",
+                    "usr": "s:22CheckoutCardManagement17DigitizationStateO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "CheckoutCardManagement.DigitizationState.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "DigitizationState",
+                        "printedName": "CheckoutCardManagement.DigitizationState",
+                        "usr": "s:22CheckoutCardManagement17DigitizationStateO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:22CheckoutCardManagement17DigitizationStateO16pendingIDVRemoteyA2CmF",
+            "mangledName": "$s22CheckoutCardManagement17DigitizationStateO16pendingIDVRemoteyA2CmF",
+            "moduleName": "CheckoutCardManagement",
+            "declAttributes": [
+              "RawDocComment"
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "CheckoutCardManagement.DigitizationState?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DigitizationState",
+                    "printedName": "CheckoutCardManagement.DigitizationState",
+                    "usr": "s:22CheckoutCardManagement17DigitizationStateO"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:22CheckoutCardManagement17DigitizationStateO8rawValueACSgSS_tcfc",
+            "mangledName": "$s22CheckoutCardManagement17DigitizationStateO8rawValueACSgSS_tcfc",
+            "moduleName": "CheckoutCardManagement",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:22CheckoutCardManagement17DigitizationStateO8rawValueSSvp",
+            "mangledName": "$s22CheckoutCardManagement17DigitizationStateO8rawValueSSvp",
+            "moduleName": "CheckoutCardManagement",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:22CheckoutCardManagement17DigitizationStateO8rawValueSSvg",
+                "mangledName": "$s22CheckoutCardManagement17DigitizationStateO8rawValueSSvg",
+                "moduleName": "CheckoutCardManagement",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:22CheckoutCardManagement17DigitizationStateO",
+        "mangledName": "$s22CheckoutCardManagement17DigitizationStateO",
+        "moduleName": "CheckoutCardManagement",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "enumRawTypeName": "String",
+        "conformances": [
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -3762,6 +3738,13 @@
             ],
             "usr": "s:SY",
             "mangledName": "$sSY"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
           }
         ]
       },
@@ -4556,20 +4539,6 @@
         "conformances": [
           {
             "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
             "name": "Encodable",
             "printedName": "Encodable",
             "usr": "s:SE",
@@ -4667,20 +4636,6 @@
           "Available"
         ],
         "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
-          },
           {
             "kind": "Conformance",
             "name": "UiProvisioningExtensionAuthorizationProviding",
@@ -4816,20 +4771,6 @@
         "conformances": [
           {
             "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
             "name": "Equatable",
             "printedName": "Equatable",
             "usr": "s:SQ",
@@ -4940,20 +4881,6 @@
             "printedName": "Sendable",
             "usr": "s:s8SendableP",
             "mangledName": "$ss8SendableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
           },
           {
             "kind": "Conformance",
@@ -5084,20 +5011,6 @@
           },
           {
             "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
             "name": "Equatable",
             "printedName": "Equatable",
             "usr": "s:SQ",
@@ -5168,35 +5081,35 @@
     {
       "filePath": "\/Users\/cesargiupponi\/Desktop\/CheckoutCardManagement-iOS\/Sources\/CheckoutCardManagement\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 257,
+      "offset": 253,
       "length": 17,
       "value": "\"issuing-ios-sdk\""
     },
     {
       "filePath": "\/Users\/cesargiupponi\/Desktop\/CheckoutCardManagement-iOS\/Sources\/CheckoutCardManagement\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 401,
+      "offset": 393,
       "length": 15,
       "value": "\"CorrelationId\""
     },
     {
       "filePath": "\/Users\/cesargiupponi\/Desktop\/CheckoutCardManagement-iOS\/Sources\/CheckoutCardManagement\/LoggingSupport\/LogFormatter.swift",
       "kind": "StringLiteral",
-      "offset": 236,
+      "offset": 232,
       "length": 34,
       "value": "\"com.checkout.issuing-mobile-sdk.\""
     },
     {
       "filePath": "\/Users\/cesargiupponi\/Desktop\/CheckoutCardManagement-iOS\/Sources\/CheckoutCardManagement\/LoggingSupport\/LogFormatter.swift",
       "kind": "Dictionary",
-      "offset": 497,
+      "offset": 489,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/cesargiupponi\/Desktop\/CheckoutCardManagement-iOS\/Sources\/CheckoutCardManagement\/UIMapping\/CardManagementDesignSystem.swift",
       "kind": "StringLiteral",
-      "offset": 896,
+      "offset": 888,
       "length": 3,
       "value": "\" \""
     }

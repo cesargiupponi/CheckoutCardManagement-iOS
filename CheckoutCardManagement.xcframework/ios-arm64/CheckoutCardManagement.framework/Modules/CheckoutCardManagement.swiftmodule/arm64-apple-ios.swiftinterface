@@ -1,9 +1,10 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.0.3 effective-5.10 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
+// swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
 // swift-module-flags: -target arm64-apple-ios13.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name CheckoutCardManagement
 import CheckoutCardNetwork
 import CheckoutEventLoggerKit
 import Foundation
+import PassKit
 import Swift
 import UIKit
 import _Concurrency
@@ -60,21 +61,9 @@ extension CheckoutCardManagement.Card {
   @objc deinit
 }
 extension CheckoutCardManagement.CheckoutCardManager {
-  @frozen public enum CardDigitizationResult : Swift.Equatable {
-    case success(CheckoutCardManagement.DigitizationState)
+  @frozen public enum CardDigitizationResult {
+    case success(CheckoutCardManagement.DigitizationData)
     case failure(CheckoutCardManagement.CardManagementError)
-    public static func == (a: CheckoutCardManagement.CheckoutCardManager.CardDigitizationResult, b: CheckoutCardManagement.CheckoutCardManager.CardDigitizationResult) -> Swift.Bool
-  }
-}
-public enum DigitizationState : Swift.String, Swift.Decodable {
-  case digitized
-  case notDigitized
-  case pendingIDVLocal
-  case pendingIDVRemote
-  public init?(rawValue: Swift.String)
-  public typealias RawValue = Swift.String
-  public var rawValue: Swift.String {
-    get
   }
 }
 public enum CardManagementError : Swift.Error, Swift.Equatable {
@@ -90,7 +79,6 @@ public enum CardManagementError : Swift.Error, Swift.Equatable {
   }
   public enum ProvisioningExtensionFailure : Swift.Error, Swift.Equatable {
     case walletExtensionAppGroupIDNotFound
-    case notLoggedIn
     case cardNotFound
     case deviceEnvironmentUnsafe
     case operationFailure
@@ -127,6 +115,22 @@ public enum CardManagementError : Swift.Error, Swift.Equatable {
 public enum CardManagerEnvironment : Swift.String {
   case sandbox
   case production
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct DigitizationData {
+  public let state: CheckoutCardManagement.DigitizationState
+  public let localPKPass: PassKit.PKPass?
+  public let remotePKPass: PassKit.PKPass?
+}
+public enum DigitizationState : Swift.String, Swift.Decodable {
+  case digitized
+  case notDigitized
+  case pendingIDVLocal
+  case pendingIDVRemote
   public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
@@ -176,13 +180,13 @@ open class IssuerProvisioningExtensionHandler : CheckoutCardManagement.CKOIssuer
   open func onError(_ error: CheckoutCardManagement.CardManagementError.ProvisioningExtensionFailure)
   @objc deinit
 }
-extension CheckoutCardManagement.DigitizationState : Swift.Equatable {}
-extension CheckoutCardManagement.DigitizationState : Swift.Hashable {}
-extension CheckoutCardManagement.DigitizationState : Swift.RawRepresentable {}
 extension CheckoutCardManagement.CardManagementError.PushProvisioningFailure : Swift.Hashable {}
 extension CheckoutCardManagement.CardManagementError.ProvisioningExtensionFailure : Swift.Hashable {}
 extension CheckoutCardManagement.CardManagementError.DigitizationStateFailure : Swift.Hashable {}
 extension CheckoutCardManagement.CardManagerEnvironment : Swift.Equatable {}
 extension CheckoutCardManagement.CardManagerEnvironment : Swift.Hashable {}
 extension CheckoutCardManagement.CardManagerEnvironment : Swift.RawRepresentable {}
+extension CheckoutCardManagement.DigitizationState : Swift.Equatable {}
+extension CheckoutCardManagement.DigitizationState : Swift.Hashable {}
+extension CheckoutCardManagement.DigitizationState : Swift.RawRepresentable {}
 extension CheckoutCardManagement.CheckoutCardManager.OperationResult : Swift.Sendable {}
